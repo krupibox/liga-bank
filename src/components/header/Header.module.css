@@ -1,0 +1,12 @@
+.navigation {
+	display: flex;
+}
+
+.menuLink {
+	text-decoration: none;
+	color: var(--black);
+}
+
+.menuLink:hover, .menuLink:focus {
+	color: var(--blue);
+}
