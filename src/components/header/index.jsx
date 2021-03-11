@@ -1,7 +1,7 @@
 
 import { menuItems } from "../../helpers";
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 const Header = () =>
 (

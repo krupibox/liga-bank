@@ -6,6 +6,15 @@
 	--grey: #f6f7ff;
 }
 
+@import "./assets/styles/_fonts.scss";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-family: "Roboto", "Arial", sans-serif;
+}
+
 .container {
 	width: 1366px;
 	margin: 0 auto;
