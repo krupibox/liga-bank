@@ -3,20 +3,22 @@
 	--blue: #2c36f2;
 	--blueDark: #2027b4;
 	--blueLight: #3841ff;
-	--grey: #f6f7ff;
+	--grey: #707c87;
 }
 
+@import "./assets/styles/_normalize.scss";
 @import "./assets/styles/_fonts.scss";
-
-* {
-	box-sizing: border-box;
-	border: 0 solid black;
-}
 
 html, body {
 	margin: 0;
 	padding: 0;
 	font-family: "Roboto", "Arial", sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 a, a:visited {
@@ -25,8 +27,6 @@ a, a:visited {
 }
 
 .container {
-	min-width: 1366px;
-	max-width: 1366px;
+	width: 1366px;
 	margin: 0 auto;
-	padding: 0 20px;
 }

@@ -1,6 +1,6 @@
 
 import { menuItems } from "../../helpers";
-import { Logo, LoginIcon } from '../../assets/icons';
+import { Logo, Login } from '../../assets/icons';
 import styles from "./Header.module.scss";
 
 const Header = () =>
@@ -13,7 +13,7 @@ const Header = () =>
             menuItems && menuItems.map((item) => (<a className={styles.link} key={item} href="/">{item}</a>))
         }</nav>
 
-        <div className={styles.login}><LoginIcon className={styles.loginIcon} /> <a className={styles.loginText} href="/">Войти в Интернет-банк</a></div>
+        <div className={styles.login}><Login className={styles.loginIcon} /> <a className={styles.loginText} href="/">Войти в Интернет-банк</a></div>
     </div>
 )
 
