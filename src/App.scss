@@ -12,6 +12,7 @@
 @import "./assets/styles/_fonts.scss";
 
 html, body {
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: "Roboto", "Arial", sans-serif;
@@ -28,7 +29,15 @@ a, a:visited {
 	color: var(--black);
 }
 
-.container {
+.wrapper {
+	display: flex;
+	flex-direction: column;
 	width: 1366px;
+	height: 100vh;
 	margin: 0 auto;
+}
+
+.main {
+	display: flex;
+	flex: 1 0 auto;
 }

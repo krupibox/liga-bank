@@ -3,7 +3,7 @@ import styles from "./Banner.module.scss";
 
 const Banner = () =>
 (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
         <div className={styles.inner}>
             <div className={styles.action}>
                 <p className={styles.title}>Лига Банк</p>

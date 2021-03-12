@@ -7,7 +7,7 @@ const ITEM = 2;
 
 const Footer = () =>
 (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
         <div className={[styles.column, styles.logoInner].join(" ")}>
             <a href="/"><Logo className={styles.logoIcon} /></a>
             <p className={styles.address}>150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка России №1050 Ⓒ Лига Банк, 2019</p>

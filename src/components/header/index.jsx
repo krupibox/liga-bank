@@ -5,7 +5,7 @@ import styles from "./Header.module.scss";
 
 const Header = () =>
 (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
         <a href="/">
             <Logo className={styles.logo} />
         </a>

@@ -6,10 +6,12 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="container">
+    <div className="wrapper">
       <Header />
       <Banner />
-      <Converter />
+      <main className="main">
+        <Converter />
+      </main>
       <Footer />
     </div>
   );

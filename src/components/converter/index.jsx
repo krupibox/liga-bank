@@ -2,7 +2,8 @@ import styles from "./Converter.module.scss";
 
 const Converter = () =>
 (
-    <div className={styles.wrapper}>
+    <div className={styles.container}>
+        Converter
     </div>
 )
 

@@ -1,5 +1,6 @@
-.wrapper {
+.container {
 	display: flex;
+	flex: 0 0 auto;
 	justify-content: space-between;
 	padding: 60px 97px 60px;
 	background-color: var(--greyLight);
