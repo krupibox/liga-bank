@@ -6,7 +6,7 @@ const Banner = () =>
     <div className={styles.container}>
         <div className={styles.inner}>
             <div className={styles.action}>
-                <p className={styles.title}>Лига Банк</p>
+                <h1 className={styles.title}>Лига Банк</h1>
                 <p className={styles.subTitle}>Кредиты на любой случай</p>
                 <button className={styles.button} type="submit">Рассчитать кредит</button>
             </div>
