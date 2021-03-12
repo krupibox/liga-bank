@@ -5,17 +5,16 @@ import styles from "./Converter.module.scss";
 
 const Converter = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const [currencyFrom, setCurrencyFrom] = useState(0);
-    const [currencyTo, setCurrencyTo] = useState(0);
+    const [currencyFrom, setCurrencyFrom] = useState();
+    const [currencyTo, setCurrencyTo] = useState();
 
-    const handleSubmit = () => {
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
         console.log(currencyFrom * currencyTo);
     }
 
-    const handleChangeFrom = (event) => setCurrencyTo(event.target.value);
-    const handleChangeTo = (event) => setCurrencyFrom(event.target.value);
-
-    console.log(currencyFrom);
+    const handleChangeFrom = (evt) => setCurrencyTo(evt.target.value * 2);
+    const handleChangeTo = (evt) => setCurrencyFrom(evt.target.value);
 
     return (<div className={styles.container}>
         <h2>Конвертер валют</h2>
