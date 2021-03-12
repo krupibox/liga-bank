@@ -1,19 +1,47 @@
-.navigationWrapper {
+.wrapper {
 	display: flex;
 	justify-content: space-between;
+	padding: 27px 77px 23px;
+	font-size: 16px;
+	line-height: 2.5;
 }
 
-.menuInner {
+.logo {
+	flex-shrink: 2;
+}
+
+.nav {
 	display: flex;
-	flex-grow: 0.3;
+	flex-grow: 1;
 	justify-content: space-between;
+	max-width: 610px;
+	margin-right: auto;
+	margin-left: 58px;
 }
 
-.menuLink {
-	text-decoration: none;
+.link {
 	color: var(--black);
 }
 
-.menuLink:hover, .menuLink:focus {
+.link:hover, .link:focus {
+	color: var(--blue);
+}
+
+.login {
+	display: flex;
+	align-items: center;
+}
+
+.loginIcon {
+	position: relative;
+	top: -2px;
+}
+
+.loginText {
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.loginText:hover, .loginText:focus {
 	color: var(--blue);
 }

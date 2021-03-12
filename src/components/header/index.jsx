@@ -1,17 +1,19 @@
 
 import { menuItems } from "../../helpers";
-import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { Logo, LoginIcon } from '../../assets/icons';
 import styles from "./Header.module.scss";
 
 const Header = () =>
 (
-    <div className={styles.navigationWrapper}>
-        <Logo />
-        <nav className={styles.menuInner}>{
-            menuItems && menuItems.map((item) => (<a className={styles.menuLink} key={item} href="/">{item}</a>))
+    <div className={styles.wrapper}>
+        <a href="/">
+            <Logo className={styles.logo} />
+        </a>
+        <nav className={styles.nav}>{
+            menuItems && menuItems.map((item) => (<a className={styles.link} key={item} href="/">{item}</a>))
         }</nav>
 
-        <div>Войти в Интернет-банк</div>
+        <div className={styles.login}><LoginIcon className={styles.loginIcon} /> <a className={styles.loginText} href="/">Войти в Интернет-банк</a></div>
     </div>
 )
 

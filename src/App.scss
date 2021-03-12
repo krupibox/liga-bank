@@ -8,14 +8,25 @@
 
 @import "./assets/styles/_fonts.scss";
 
+* {
+	box-sizing: border-box;
+	border: 0 solid black;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
 	font-family: "Roboto", "Arial", sans-serif;
 }
 
+a, a:visited {
+	text-decoration: none;
+	color: var(--black);
+}
+
 .container {
-	width: 1366px;
+	min-width: 1366px;
+	max-width: 1366px;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 0 20px;
 }
