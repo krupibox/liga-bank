@@ -5,15 +5,8 @@
 	background-color: var(--greyLight);
 }
 
-.col {
-	position: relative;
-	display: flex;
-	flex-basis: 200px;
+.column {
 	flex-direction: column;
-}
-
-.logoInner {
-	flex-basis: 255px;
 }
 
 .logoIcon {
@@ -21,25 +14,17 @@
 	top: -10px;
 }
 
-.link {
-	color: var(--black);
-}
-
-.link:hover, .link:focus {
-	color: var(--blue);
-}
-
 .address {
+	max-width: 252px;
 	margin-top: 4px;
 	color: var(--grey);
 	font-size: 12px;
 	line-height: 16.8px;
 }
 
-.menuList {
-	flex-basis: 165px;
+.menuInner {
 	flex-direction: column;
-	margin-left: 25px;
+	width: 144px;
 }
 
 .menuList li {
@@ -51,6 +36,13 @@
 	color: var(--blue);
 }
 
+.phonesInner {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 431px;
+}
+
 .accent {
 	margin-bottom: 5px;
 	color: var(--black);
@@ -59,12 +51,17 @@
 }
 
 .mobile, .handset {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	padding-left: 30px;
 	color: var(--grey);
 	font-size: 12px;
 	line-height: 16.8px;
+}
+
+.handset {
+	margin-left: 60px;
 }
 
 .mobile::before, .handset::before {
@@ -86,8 +83,8 @@
 	no-repeat;
 }
 
-.social {
-	flex-basis: 102px;
+.socialInner {
+	width: 102px;
 }
 
 .socialList {
