@@ -1,6 +1,6 @@
 
-import { menuItems } from "../../helpers";
-import { Logo, Login } from '../../assets/icons';
+import { menuItems } from "helpers";
+import { Logo, Login } from 'assets/icons';
 import styles from "./Header.module.scss";
 
 const Header = () =>

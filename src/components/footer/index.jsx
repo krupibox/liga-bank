@@ -1,11 +1,11 @@
 
-import { menuItems, footerSocialItems, removeItem } from "../../helpers";
-import { Logo } from '../../assets/icons';
+import { menuItems, footerSocialItems, removeItem } from "helpers";
+import { Logo } from 'assets/icons';
 import styles from "./Footer.module.scss";
 
 const ITEM = 2;
 
-const Header = () =>
+const Footer = () =>
 (
     <div className={styles.wrapper}>
         <div className={[styles.col, styles.logoInner].join(" ")}>
@@ -38,4 +38,4 @@ const Header = () =>
     </div>
 )
 
-export default Header;
+export default Footer;

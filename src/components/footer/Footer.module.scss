@@ -1,7 +1,8 @@
 .wrapper {
 	display: flex;
 	justify-content: space-between;
-	padding: 36px 77px 60px;
+	padding: 60px 97px 60px;
+	background-color: var(--greyLight);
 }
 
 .col {
@@ -13,7 +14,6 @@
 
 .logoInner {
 	flex-basis: 255px;
-	margin-right: 10px;
 }
 
 .logoIcon {
@@ -37,7 +37,9 @@
 }
 
 .menuList {
+	flex-basis: 165px;
 	flex-direction: column;
+	margin-left: 25px;
 }
 
 .menuList li {
