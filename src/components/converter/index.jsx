@@ -1,39 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Converter.module.scss";
 
 const Converter = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const [currency, setCurrency] = useState(
-        {
-            from: 0,
-            to: 0
-        });
+    const currencyValues = {
+        from: 1,
+        to: 1
+    }
+    const [currencyFrom, setCurrencyFrom] = useState(currencyValues)
+    const [currencyTo, setCurrencyTo] = useState(currencyValues);
+    const [currency, setCurrency] = useState(currencyValues);
+
+    console.log(currency);
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
-        console.log(currency);
+        // console.log(currency);
     }
 
     const handleChange = (evt) => {
         const { name, value } = evt.target;
-        // const mult = 2;
-        // const translateFromTo = () => ({ [name]: value * mult });
-
-        setCurrency({ ...currency, [name]: value });
+        setCurrency((prevTarget => ({ ...prevTarget, ...{ [name]: value } })));
     };
 
-    async function getRates() {
-        try {
-            let response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js?date_req=02/03/2002');
-            let curr = await response.json();
-            console.log(curr.Valute.USD);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-    getRates();
+    // use useReducer
+    useEffect(() => {
+        setCurrencyFrom(prevCurrencyFrom => ({ ...prevCurrencyFrom, ...{ from: currency.from } }));
+        setCurrencyTo(prevCurrencyTo => ({ ...prevCurrencyTo, ...{ to: currency.from * 2 } }));
+    }, [currency.from]);
+
+    useEffect(() => {
+        setCurrencyTo(prevCurrencyTo => ({ ...prevCurrencyTo, ...{ to: currency.to } }));
+        setCurrencyFrom(prevCurrencyFrom => ({ ...prevCurrencyFrom, ...{ from: currency.to / 2 } }));
+    }, [currency.to]);
+
+    // async function getRates() {
+    //     try {
+    //         let response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js?date_req=02/03/2002');
+    //         let curr = await response.json();
+    //         console.log(curr.Valute.USD);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+    // getRates();
 
     return (<div className={styles.container}>
         <h2>Конвертер валют</h2>
@@ -41,7 +53,7 @@ const Converter = () => {
             <fieldset >
                 <div>
                     <legend>У меня есть:</legend>
-                    <input type="number" name="from" value={currency.from} onChange={handleChange} />
+                    <input type="number" name="from" value={currencyFrom.from} onChange={handleChange} />
                     <select>
                         <option value="rub">RUB</option>
                         <option value="usd">USD</option>
@@ -49,7 +61,7 @@ const Converter = () => {
                 </div>
                 <div>
                     <legend>Хочу приобрести:</legend>
-                    <input type="number" name="to" value={currency.to} onChange={handleChange} />
+                    <input type="number" name="to" value={currencyTo.to} onChange={handleChange}  />
                     <select>
                         <option value="rub">USD</option>
                         <option value="usd">RUB</option>
