@@ -1,11 +1,12 @@
 .tableContainer {
 	display: flex;
 	flex-direction: column;
+	box-sizing: border-box;
 	width: 1170px;
 	min-height: 477px;
 	margin: 0 auto;
 	margin-bottom: 110px;
-	padding: 40px 70px 0;
+	padding: 40px 70px 39px;
 	background-color: var(--greyLight);
 }
 
@@ -25,9 +26,7 @@
 	margin-bottom: 30px;
 }
 
-// .table li:nth-child(5), .table li:last-child {}
-
-.table li:nth-child(n+6) {
+.table li:nth-child(n + 6) {
 	padding-left: 123px;
 }
 
@@ -43,8 +42,11 @@
 }
 
 .arrow {
+	position: relative;
+	top: 3px;
 	margin: 0 13px;
 }
+
 .button {
 	width: 198px;
 	height: 50px;

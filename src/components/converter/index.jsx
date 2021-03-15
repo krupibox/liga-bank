@@ -59,13 +59,13 @@ const Converter = () => {
     // use useReducer
     useEffect(() => {
         setAmountFrom({ ...amountFrom, ...{ from: amount.from } });
-        setAmountTo({ ...amountTo, ...{ to: getPriceTotalWithNoZero (amount.from * rate) } });
+        setAmountTo({ ...amountTo, ...{ to: getPriceTotalWithNoZero(amount.from * rate) } });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount.from, currency, rate]);
 
     useEffect(() => {
         setAmountTo({ ...amountTo, ...{ to: amount.to } });
-        setAmountFrom({ ...amountFrom, ...{ from: getPriceTotalWithNoZero (amount.to / rate)} });
+        setAmountFrom({ ...amountFrom, ...{ from: getPriceTotalWithNoZero(amount.to / rate) } });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount.to, currency, rate]);
 
@@ -86,35 +86,36 @@ const Converter = () => {
     }, [startDate, currency])
 
     return (<div className={styles.container}>
-        <h2>Конвертер валют</h2>
+        <h2 className={styles.title}>Конвертер валют</h2>
         <form className={styles.form} onSubmit={handleSubmit}>
 
             <fieldset className={styles.fieldset}>
-                <div>
-                    <legend>У меня есть:</legend>
-                    <input type="number" name="from" value={amountFrom.from} onChange={handleAmountChange} />
-                    <select name="from" value={currency.from} onChange={handleCurrencyChange}>
-                        <option value="RUB">RUB</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="CNY">CNY</option>
-                    </select>
+                <div className={styles.block}>
+                    <legend className={styles.legend} >У меня есть:</legend>
+                    <div className={styles.group}>
+                        <input className={styles.input} type="number" name="from" value={amountFrom.from} onChange={handleAmountChange} />
+                        <select className={styles.select} name="from" value={currency.from} onChange={handleCurrencyChange}>
+                            <option value="RUB">RUB</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                            <option value="CNY">CNY</option>
+                        </select>
+                    </div>
                 </div>
-
-                <Exchange />
-                <div>{rate}</div>
-
-                <div>
-                    <legend>Хочу приобрести:</legend>
-                    <input type="number" name="to" value={amountTo.to} onChange={handleAmountChange} />
-                    <select name="to" value={currency.to} onChange={handleCurrencyChange}>
+                <Exchange className={styles.exchange}/>
+                <div className={styles.block}>
+                    <legend className={styles.legend}>Хочу приобрести:</legend>
+                    <div className={styles.group}>
+                    <input className={styles.input} type="number" name="to" value={amountTo.to} onChange={handleAmountChange} />
+                    <select className={styles.select} name="to" value={currency.to} onChange={handleCurrencyChange}>
                         <option value="USD">USD</option>
                         <option value="RUB">RUB</option>
                         <option value="EUR">EUR</option>
                         <option value="GBP">GBP</option>
                         <option value="CNY">CNY</option>
                     </select>
+                    </div>
                 </div>
             </fieldset>
 
@@ -125,6 +126,7 @@ const Converter = () => {
                     dateFormat="dd.MM.yyyy"
                     minDate={subDays(new Date(), 7)}
                     maxDate={new Date()}
+                    className={styles.input}
                 />
                 <Button button={{
                     className: styles.button,
