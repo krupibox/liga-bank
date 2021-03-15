@@ -6,3 +6,5 @@ export {ReactComponent as Faceboook} from "./facebook.svg";
 export {ReactComponent as Instagram} from "./instagram.svg";
 export {ReactComponent as Twitter} from "./twitter.svg";
 export {ReactComponent as Youtube} from "./youtube.svg";
+export {ReactComponent as Exchange} from "./exchange.svg";
+export {ReactComponent as Arrow} from "./arrow.svg";
