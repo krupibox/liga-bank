@@ -12,12 +12,12 @@ const Converter = () => {
 
     const MAX_HISTORY_ITEMS = 10;
     const DEFAULT_AMOUNT = {
-        from: 1,
+        from: 1000,
         to: 1
     }
     const DEFAULT_CURRENCY = {
-        from: "USD",
-        to: "RUB"
+        from: "RUB",
+        to: "USD"
     }
 
     const [startDate, setStartDate] = useState(new Date());
@@ -58,13 +58,15 @@ const Converter = () => {
 
     // use useReducer
     useEffect(() => {
-        setAmountFrom(prevAmountFrom => ({ ...prevAmountFrom, ...{ from: amount.from } }));
-        setAmountTo(prevAmountTo => ({ ...prevAmountTo, ...{ to: getPriceTotalWithNoZero(amount.from * rate) } }));
+        setAmountFrom({ ...amountFrom, ...{ from: amount.from } });
+        setAmountTo({ ...amountTo, ...{ to: getPriceTotalWithNoZero (amount.from * rate) } });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount.from, currency, rate]);
 
     useEffect(() => {
-        setAmountTo(prevAmountTo => ({ ...prevAmountTo, ...{ to: amount.to } }));
-        setAmountFrom(prevAmountFrom => ({ ...prevAmountFrom, ...{ from: getPriceTotalWithNoZero(amount.to / rate) } }));
+        setAmountTo({ ...amountTo, ...{ to: amount.to } });
+        setAmountFrom({ ...amountFrom, ...{ from: getPriceTotalWithNoZero (amount.to / rate)} });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [amount.to, currency, rate]);
 
     useEffect(() => {
