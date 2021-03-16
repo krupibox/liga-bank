@@ -20,15 +20,18 @@ const Converter = () => {
 
     let { toAmount, fromAmount } = calculateAmounts(isAmount, amount, rate);
 
-    const handleFromAmountChange = ({target: {value}}) => {
-        setAmount(value);
-        setIsAmount(true);
-    };
+    const toggleAmount = {
+        from: (value) => {
+            setAmount(value);
+            setIsAmount(true);
+        },
+        to: (value) => {
+            setAmount(value);
+            setIsAmount(false);
+        },
+    }
 
-    const handleToAmountChange = ({target: {value}}) => {
-        setAmount(value);
-        setIsAmount(false);
-    };
+    const handleAmountChange = ({ target: { name, value } }) => toggleAmount[name](value);
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -49,7 +52,7 @@ const Converter = () => {
     };
 
     useEffect(() => {
-        async function getRates() {
+        (async function getRates() {
             try {
                 let response = await fetch(`${EXCHANGE_URL}/${format(startDate, 'yyyy-MM-dd')}?base=${fromCurrency}&symbols=${toCurrency}`);
                 let data = await response.json();
@@ -58,9 +61,7 @@ const Converter = () => {
             } catch (err) {
                 console.log(err);
             }
-        }
-
-        getRates();
+        })();
 
     }, [startDate, fromCurrency, toCurrency])
 
@@ -72,11 +73,12 @@ const Converter = () => {
                     <legend className={styles.legend} >У меня есть:</legend>
                     <div className={styles.group}>
                         <Input
+                            name="from"
                             styles={styles}
                             currency={fromCurrency}
                             amount={fromAmount}
                             handleCurrencyChange={({ target: { value } }) => setFromCurrency(value)}
-                            handleAmountChange={handleFromAmountChange}
+                            handleAmountChange={handleAmountChange}
                         />
                     </div>
                 </div>
@@ -85,11 +87,12 @@ const Converter = () => {
                     <legend className={styles.legend}>Хочу приобрести:</legend>
                     <div className={styles.group}>
                         <Input
+                            name="to"
                             styles={styles}
                             currency={toCurrency}
                             amount={toAmount}
                             handleCurrencyChange={({ target: { value } }) => setToCurrency(value)}
-                            handleAmountChange={handleToAmountChange}
+                            handleAmountChange={handleAmountChange}
                         />
                     </div>
                 </div>

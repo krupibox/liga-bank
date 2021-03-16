@@ -1,6 +1,7 @@
 import { currencyOptions } from "libs/helpers";
 
 export const Input = ({
+    name,
     styles,
     currency,
     handleCurrencyChange,
@@ -9,6 +10,7 @@ export const Input = ({
 }) => {
     return (<>
         <input
+            name={name}
             className={styles.input}
             type="number"
             value={amount}
