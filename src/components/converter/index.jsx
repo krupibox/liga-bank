@@ -4,7 +4,7 @@ import { format, subDays } from "date-fns";
 import History from "components/history";
 import { Button, Input } from "components/ui";
 import { calculateAmounts } from "libs/utils";
-import { EXCHANGE_URL, MAX_HISTORY_ITEMS, INITIAL_AMOUNT } from "utils/constants";
+import { EXCHANGE_URL, MAX_HISTORY_ITEMS, INITIAL_AMOUNT } from "libs/constants";
 import { Exchange } from "assets/icons";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Converter.module.scss";

@@ -1,4 +1,4 @@
-import { currencyOptions } from "utils/helpers";
+import { currencyOptions } from "libs/helpers";
 
 export const Input = ({
     styles,

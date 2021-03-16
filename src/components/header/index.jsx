@@ -1,5 +1,5 @@
 
-import { menuItems } from "utils/helpers";
+import { menuItems } from "libs/helpers";
 import { Logo, Login } from 'assets/icons';
 import styles from "./Header.module.scss";
 

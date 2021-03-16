@@ -4,7 +4,9 @@
         "paths": {
             "libs/*": ["src/libs/*"],
             "assets/*": ["src/assets/*"]
-        }
+        },
+        "sourceMap": true,
+        "checkJs": false
     },
     "include": [
         "src"

@@ -4,18 +4,18 @@ export const removeItem = (items, index) => {
     return [...firstArr, ...secondArr]
 }
 export const calculateAmounts = (isAmountFrom, amount, rate) => {
-    let fromAmount = 1000;
-    let toAmount = 1;
+    let fromAmount, toAmount;
 
     if (isAmountFrom) {
         fromAmount = amount;
-        toAmount = amount * rate;
+        toAmount = parseFloat((amount * rate).toFixed(4));
     } else {
         toAmount = amount;
-        fromAmount = amount / rate;
+        fromAmount = parseFloat((amount / rate).toFixed(4));
     }
+
     return {
-        fromAmount: parseFloat(fromAmount.toFixed(4)),
-        toAmount: parseFloat(toAmount.toFixed(4))
+        fromAmount,
+        toAmount
     }
 }
