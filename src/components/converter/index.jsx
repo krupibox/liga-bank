@@ -77,8 +77,8 @@ const Converter = () => {
                             styles={styles}
                             currency={fromCurrency}
                             amount={fromAmount}
-                            handleCurrencyChange={({ target: { value } }) => setFromCurrency(value)}
-                            handleAmountChange={handleAmountChange}
+                            onCurrencyChange={({ target: { value } }) => setFromCurrency(value)}
+                            onAmountChange={handleAmountChange}
                         />
                     </div>
                 </div>
@@ -91,8 +91,8 @@ const Converter = () => {
                             styles={styles}
                             currency={toCurrency}
                             amount={toAmount}
-                            handleCurrencyChange={({ target: { value } }) => setToCurrency(value)}
-                            handleAmountChange={handleAmountChange}
+                            onCurrencyChange={({ target: { value } }) => setToCurrency(value)}
+                            onAmountChange={handleAmountChange}
                         />
                     </div>
                 </div>
@@ -100,11 +100,11 @@ const Converter = () => {
             <div className={styles.calendar}>
                 <DatePicker
                     selected={startDate}
-                    onChange={date => setStartDate(date)}
                     dateFormat="dd.MM.yyyy"
                     minDate={subDays(new Date(), 7)}
                     maxDate={new Date()}
-                    className={[styles.input, styles.icon].join(" ")}
+                    className={[styles.input, styles.icon, styles.date].join(" ")}
+                    onChange={date => setStartDate(date)}
                 />
                 <Button button={{
                     className: styles.button,
@@ -112,7 +112,7 @@ const Converter = () => {
                 }} title="Сохранить результат"></Button>
             </div>
         </form>
-        <History history={history} setHistory={setHistory} />
+        <History history={history} onSetHistory={setHistory} />
     </div>)
 }
 

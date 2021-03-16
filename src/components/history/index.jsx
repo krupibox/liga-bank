@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { Button } from "components/ui/button";
 import { Arrow } from "assets/icons";
 import styles from "./History.module.scss";
 
-const History = ({ setHistory, history }) => {
+const History = ({ onSetHistory, history }) => {
 
-    const handlerClick = () => setHistory([])
+    const handlerClick = () => onSetHistory([])
 
     return (
         <section className={styles.tableContainer}>
@@ -24,4 +25,14 @@ const History = ({ setHistory, history }) => {
     )
 }
 
+History.propTypes = {
+    history: PropTypes.arrayOf(PropTypes.shape({
+        amountFrom: PropTypes.string,
+        amountTo: PropTypes.string,
+        date: PropTypes.string
+    })),
+    onSetHistory: PropTypes.func.isRequired
+};
+
 export default History;
+

@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import { currencyOptions } from "libs/helpers";
 
 export const Input = ({
     name,
     styles,
     currency,
-    handleCurrencyChange,
-    handleAmountChange,
-    amount
+    amount,
+    onCurrencyChange,
+    onAmountChange,
 }) => {
     return (<>
         <input
@@ -15,12 +16,12 @@ export const Input = ({
             name={name}
             className={styles.input}
             value={amount}
-            onChange={handleAmountChange}
+            onChange={onAmountChange}
         />
         <select
             className={styles.select}
             value={currency}
-            onChange={handleCurrencyChange}>
+            onChange={onCurrencyChange}>
 
             {currencyOptions.map((option) => (<option
                 key={option}
@@ -29,3 +30,12 @@ export const Input = ({
         </select>
     </>)
 }
+
+Input.propTypes = {
+    name: PropTypes.string.isRequired,
+    styles: PropTypes.object.isRequired,
+    currency: PropTypes.string.isRequired,
+    amount: PropTypes.number.isRequired,
+    onCurrencyChange: PropTypes.func.isRequired,
+    onAmountChange: PropTypes.func.isRequired
+};

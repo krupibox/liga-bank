@@ -1,10 +1,9 @@
 
 import { removeItem } from "libs/utils";
 import { menuItems, footerSocialItems } from "libs/helpers";
+import { EXCLUDED_ITEM } from "libs/constants";
 import { Logo } from 'assets/icons';
 import styles from "./Footer.module.scss";
-
-const ITEM = 2;
 
 const Footer = () =>
 (
@@ -14,7 +13,7 @@ const Footer = () =>
             <p className={styles.address}>150015, г. Москва, ул. Московская, д. 32 Генеральная лицензия Банка России №1050 Ⓒ Лига Банк, 2019</p>
         </div>
         <ul className={[styles.column, styles.menuInner].join(" ")}>
-            {removeItem(menuItems, ITEM).map(item => <li key={item}><a href="/">{item}</a></li>)}
+            {removeItem(menuItems, EXCLUDED_ITEM).map(item => <li key={item}><a href="/">{item}</a></li>)}
         </ul>
         <div className={[styles.column, styles.phonesInner].join(" ")}>
             <div className={styles.mobile}>

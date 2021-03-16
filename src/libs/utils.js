@@ -1,16 +1,19 @@
+import PropTypes from 'prop-types';
+
 export const removeItem = (items, index) => {
     const firstArr = items.slice(0, index);
     const secondArr = items.slice(index + 1);
     return [...firstArr, ...secondArr]
 }
+
 export const calculateAmounts = (isAmountFrom, amount, rate) => {
     let fromAmount, toAmount;
 
     if (isAmountFrom) {
-        fromAmount = amount;
+        fromAmount = parseFloat(amount);
         toAmount = parseFloat((amount * rate).toFixed(4));
     } else {
-        toAmount = amount;
+        toAmount = parseFloat(amount);
         fromAmount = parseFloat((amount / rate).toFixed(4));
     }
 
@@ -19,3 +22,9 @@ export const calculateAmounts = (isAmountFrom, amount, rate) => {
         toAmount
     }
 }
+
+calculateAmounts.propTypes = {
+    isAmountFrom: PropTypes.bool.isRequired,
+    amount: PropTypes.number.isRequired,
+    rate: PropTypes.string.isRequired,
+};
