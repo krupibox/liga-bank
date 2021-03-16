@@ -10,9 +10,10 @@ export const Input = ({
 }) => {
     return (<>
         <input
+            type="number"
+            step="any"
             name={name}
             className={styles.input}
-            type="number"
             value={amount}
             onChange={handleAmountChange}
         />
