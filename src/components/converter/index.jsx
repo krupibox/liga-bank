@@ -104,7 +104,7 @@ const Converter = () => {
                     dateFormat="dd.MM.yyyy"
                     minDate={subDays(new Date(), 7)}
                     maxDate={new Date()}
-                    className={styles.input}
+                    className={[styles.input, styles.icon].join(" ")}
                 />
                 <Button button={{
                     className: styles.button,
