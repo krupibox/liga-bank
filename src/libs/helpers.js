@@ -1,4 +1,4 @@
-import { Faceboook, Instagram, Twitter, Youtube } from "./assets/icons";
+import { Faceboook, Instagram, Twitter, Youtube } from "assets/icons";
 
 export const menuItems = [
     "Услуги",
@@ -31,13 +31,4 @@ export const footerSocialItems = [
     },
 ];
 
-export const removeItem = (items, index) => {
-    const firstArr = items.slice(0, index);
-    const secondArr = items.slice(index + 1);
-    return [...firstArr, ...secondArr]
-}
-
-export const getPriceTotalWithNoZero = (price) => {
-    const zero = (price % 1).toString().split(".")[1] || "0";
-    return zero === "0" || zero[0] === "0" ? price.toFixed() : price.toFixed(1);
-};
+export const currencyOptions = ["USD", "RUB", "EUR", "GBP", "CNY"];

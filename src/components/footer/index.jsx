@@ -1,5 +1,6 @@
 
-import { menuItems, footerSocialItems, removeItem } from "helpers";
+import { removeItem } from "libs/utils";
+import { menuItems, footerSocialItems } from "libs/helpers";
 import { Logo } from 'assets/icons';
 import styles from "./Footer.module.scss";
 
